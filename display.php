@@ -1,4 +1,5 @@
-<?php require 'logic.php'; ?>
+<?php require 'logic.php' ?>
+<!-- TODO Style all of this better. It's kind of a mess. Get it together. -->
 
 <!DOCTYPE html>
 <html>
@@ -10,22 +11,30 @@
         <meta charset="utf-8">
     </head>
 
-    <h1><strong>xkcd Style Password Generator</strong></h1>
+    <h1 class="text-center"><strong>xkcd Style Password Generator</strong></h1>
 
     <body>
-        <div class="container">
-            <form>
-                <label for="number_of_words">Number of Words:</label>
-                <input type="text" name="number_of_words" id="number_of_words" value="3"><br>
+        <div class="container text-center">
+            <form action="display.php" role="form">
+                    <p>
+                        <label for="number_of_words">Number of Words:</label>
+                        <input type="text" class="form-inline" name="number_of_words" id="number_of_words"><br>
 
-                <label for="add_symbol">Add Symbol:</label>
-                <input type="checkbox" name="add_symbol" id="add_symbol" value="symbol"><br>
+                        <label for="add_symbol">Add Symbol:</label>
+                        <input type="checkbox" class="form-inline" name="add_symbol" id="add_symbol"><br>
 
-                <label for="add_number">Add Number:</label>
-                <input type="checkbox" name="add_number" id="add_number" value="number"><br>
+                        <label for="add_number">Add Number:</label>
+                        <input type="checkbox" class="form-inline" name="add_number" id="add_number"><br>
+                    </p>
 
-                <input type="submit" class="btn" name="submit_button" value="Get a Password!"><br>
+                    <input type="submit" class="btn btn-primary" name="btn_submit" value="Get a Password!"><br>
             </form>
+            <div class="password">
+                <?php echo $password ?>
+            </div>
+            <div class="error">
+                <?php echo $error ?>
+            </div>
         </div>
     </body>
 
