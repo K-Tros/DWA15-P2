@@ -29,7 +29,7 @@
     # TODO change this to scrape web page from directions for word list
     $words = array('one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten');
     $words_count = count($words);
-    $symbols = array('~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '+', '=', '\\', '/', '<', '>', '?', '.', ',', ':', ';');
+    $symbols = array('~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '=', '\\', '/', '<', '>', '?', '.', ',', ':', ';');
     $symbols_count = count($symbols);
     $password = '';
     $password_array = [];
