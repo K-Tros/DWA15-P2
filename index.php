@@ -1,5 +1,4 @@
 <?php require 'logic.php'; ?>
-<!-- TODO Style all of this better. It's kind of a mess. Get it together. -->
 
 <!DOCTYPE html>
 <html>
@@ -16,7 +15,7 @@
 
     <body>
         <div class="container text-center">
-            <form action="display.php" role="form" class="block input">
+            <form action="index.php" role="form" class="block input">
                     <p>
                         <label for="number_of_words">Number of Words:</label>
                         <input type="text" class="form-inline" name="number_of_words" id="number_of_words" value=<?php get_number_of_words(); ?>>
@@ -31,7 +30,8 @@
                         <br>
                     </p>
 
-                    <input type="submit" class="btn btn-primary btn-lg" name="btn_submit" value="Get a Password!"><br>
+                    <input type="submit" class="btn btn-primary btn-lg" value="Get a Password!">
+                    <br>
             </form>
 
             <p>

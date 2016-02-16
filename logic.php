@@ -27,12 +27,11 @@
     }
 
     # TODO change this to scrape web page from directions for word list
-    $words = array('one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten');
+    $words = array('one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen');
     $words_count = count($words);
     $symbols = array('~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '=', '\\', '/', '<', '>', '?', '.', ',', ':', ';');
     $symbols_count = count($symbols);
     $password = '';
-    $password_array = [];
     $error = '';
 
     # check if we should use the default number of words (3), generate error if invalid
@@ -44,20 +43,10 @@
         $error = $e->getMessage();
     }
 
-    # build the password into an array, verifying uniqueness of each word
-    $x = 0;
-    while ($x < $number_of_words) {
-        $word = $words[rand(0, $words_count - 1)];
-        while (in_array($word, $password_array)) {
-            $word = $words[rand(0, $words_count - 1)];
-        }
-        array_push($password_array, $word);
-        $x++;
-    }
-
-    # convert password array to password value
-    foreach ($password_array as $value) {
-        $password = $value . '-' . $password;
+    # build the password into an array
+    $temp_array = array_rand($words, $number_of_words);
+    foreach ($temp_array as $value) {
+        $password = $words[$value] . '-' . $password;
     }
 
     # remove trailing hyphen
