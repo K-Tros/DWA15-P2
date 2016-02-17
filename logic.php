@@ -1,5 +1,8 @@
 <?php
-# TODO change word array to scrape web page
+    # TODO maybe add additional options? Camelcase? Max length?
+    # TODO maybe change code to strip special characters from input html?
+
+    error_reporting(0);
 
     # validates number_of_words, throws exception if it is not valid
     function check_number_of_words($number, $word_list_length) {
@@ -26,8 +29,22 @@
         if (isset($_GET['add_number'])) echo 'checked="checked"';
     }
 
-    # TODO change this to scrape web page from directions for word list
-    $words = array('one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen');
+    # populate list of words from external page. DOMDocument logic courtesy of http://stackoverflow.com/questions/17638165/get-ul-li-a-string-values-and-store-them-in-a-variable-or-array-php
+    $words = [];
+    # there are 15 pages to scrape, where the numbers in the url are i and i + 1, so start at i = 1 and increment by 2
+    for ($i=1; $i <= 29; $i = $i + 2) {
+        # pad numbers for url with a zero if they are single digit
+        $first_number = $i < 10 ? '0' . $i : $i;
+        $second_number = $i + 1 < 10 ? '0' . ($i + 1) : ($i + 1);
+        $html = file_get_contents('http://www.paulnoll.com/Books/Clear-English/words-' . $first_number . '-' . $second_number . '-hundred.html');
+        $doc = new DOMDocument();
+        $doc->loadHTML($html);
+        foreach ($doc->getElementsByTagName('li') as $li) {
+            # results have white space that needs to be removed
+            $words[] = preg_replace('/\s+/', '', $li->nodeValue);
+        }
+    }
+
     $words_count = count($words);
     $symbols = array('~', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '=', '\\', '/', '<', '>', '?', '.', ',', ':', ';');
     $symbols_count = count($symbols);
