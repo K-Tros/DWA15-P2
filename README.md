@@ -9,7 +9,7 @@ It allows for the user to input the number of words they wish to use, and whethe
 number or symbol.
 
 ## Demo
-To be added.
+<http://screencast.com/t/kxhFvcn3K>
 
 ## Details for teaching team
 Note that this page can take a few seconds to load. This is because it is calling out to another website
