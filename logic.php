@@ -1,6 +1,5 @@
 <?php
     # TODO maybe add additional options? Camelcase? Max length?
-    # TODO maybe change code to strip special characters from input html?
 
     error_reporting(0);
 
@@ -40,8 +39,7 @@
         $doc = new DOMDocument();
         $doc->loadHTML($html);
         foreach ($doc->getElementsByTagName('li') as $li) {
-            # results have white space that needs to be removed
-            $words[] = preg_replace('/\s+/', '', $li->nodeValue);
+            $words[] = $li->nodeValue;
         }
     }
 
@@ -63,7 +61,11 @@
     # build the password into an array
     $temp_array = array_rand($words, $number_of_words);
     foreach ($temp_array as $value) {
-        $password = $words[$value] . '-' . $password;
+        # strip all special characters and white space
+        $clean = trim(preg_replace('/[^A-Za-z0-9]/', '', $words[$value]));
+        # TODO add controls to front end for upper/lower case, check them here
+        $clean = strtolower($clean);
+        $password = $clean . '-' . $password;
     }
 
     # remove trailing hyphen
