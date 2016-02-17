@@ -12,6 +12,9 @@ number or symbol.
 To be added.
 
 ## Details for teaching team
+Note that this page can take a few seconds to load. This is because it is calling out to another website
+to get a list of words to use (as described on the assignment page). Most of the delay is caused by
+waiting for all 15 pages to come back, but it shouldn't take more than a few seconds to load.
 
 ## Outside code
 * Bootstrap: http://getbootstrap.com/
