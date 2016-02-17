@@ -15,10 +15,10 @@
 
     <body>
         <div class="container text-center">
-            <form action="index.php" role="form" class="block input">
+            <form action="index.php" class="block input">
                     <p>
                         <label for="number_of_words">Number of Words:</label>
-                        <input type="text" class="form-inline" name="number_of_words" id="number_of_words" value=<?php get_number_of_words(); ?>>
+                        <input type="text" class="form-inline" name="number_of_words" id="number_of_words" <?php get_number_of_words(); ?>>
                         <br>
 
                         <label for="add_symbol">Add Symbol:</label>

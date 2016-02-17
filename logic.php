@@ -15,7 +15,7 @@
 
     # gets number_of_words for display
     function get_number_of_words() {
-        if (isset($_GET["number_of_words"])) echo $_GET["number_of_words"];
+        if (isset($_GET["number_of_words"])) echo 'value=' . $_GET["number_of_words"];
     }
 
     # gets add_symbol for display
