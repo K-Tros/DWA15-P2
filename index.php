@@ -28,6 +28,14 @@
                         <label for="add_number">Add Number:</label>
                         <input type="checkbox" class="form-inline" name="add_number" id="add_number" <?php get_add_number(); ?>>
                         <br>
+
+                        <label for="uppercase">All Uppercase:</label>
+                        <input type="radio" name="case" id="uppercase" value="upper" <?php get_uppercase(); ?>>
+                        <br>
+
+                        <label for="lowercase">All Lowercase:</label>
+                        <input type="radio" name="case" id="lowercase" value="lower" <?php get_lowercase(); ?>>
+                        <br>
                     </p>
 
                     <input type="submit" class="btn btn-primary btn-lg" value="Get a Password!">

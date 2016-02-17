@@ -28,6 +28,16 @@
         if (isset($_GET['add_number'])) echo 'checked="checked"';
     }
 
+    # gets uppercase for display
+    function get_uppercase() {
+        if (isset($_GET['case']) && $_GET['case'] == 'upper' ) echo 'checked="checked"';
+    }
+
+    # gets lowercase for display
+    function get_lowercase() {
+        if (isset($_GET['case']) && $_GET['case'] == 'lower' ) echo 'checked="checked"';
+    }
+
     # populate list of words from external page. DOMDocument logic courtesy of http://stackoverflow.com/questions/17638165/get-ul-li-a-string-values-and-store-them-in-a-variable-or-array-php
     $words = [];
     # there are 15 pages to scrape, where the numbers in the url are i and i + 1, so start at i = 1 and increment by 2
@@ -63,8 +73,8 @@
     foreach ($temp_array as $value) {
         # strip all special characters and white space
         $clean = trim(preg_replace('/[^A-Za-z0-9]/', '', $words[$value]));
-        # TODO add controls to front end for upper/lower case, check them here
-        $clean = strtolower($clean);
+        # Check whether to convert to all uppercase or all lowercase, default lowercase
+        $clean = $_GET['case'] == 'upper' ? strtoupper($clean) : strtolower($clean);
         $password = $clean . '-' . $password;
     }
 
