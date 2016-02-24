@@ -11,6 +11,9 @@
         elseif ($number > $word_list_length) {
             throw new Exception('Number of Words must be less than ' . $word_list_length . '. Showing default length of 3.');
         }
+        elseif ($number < 1) {
+            throw new Exception('Number of Words must be greater than 0. Showing default length of 3.');
+        }
     }
 
     # gets number_of_words for display
